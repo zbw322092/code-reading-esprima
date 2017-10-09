@@ -60,10 +60,7 @@ http://unicode.org/pending/properties.html <br>
 a more-or-less complete list of properties
 http://www.unicode.org/reports/tr44/#Properties
 
-[4] JavaScript has a Unicode problem
-https://mathiasbynens.be/notes/javascript-unicode <br>
-
-[5] JavaScript’s internal character encoding: UCS-2 or UTF-16?
+[4] JavaScript’s internal character encoding: UCS-2 or UTF-16?
 https://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae <br>
 _BMP(Basic Multilingual Plane):_  U+0000 to U+FFFF
 
@@ -96,7 +93,7 @@ https://www.ecma-international.org/ecma-262/8.0/index.html#sec-source-text <br>
 > Surrogate pairs are only recombined into a single Unicode character when they’re displayed by the browser (during layout). This happens **outside of the JavaScript engine**.
 <br>
 
-[6] JavaScript character escape sequences
+[5] JavaScript character escape sequences
 https://mathiasbynens.be/notes/javascript-escapes
 
 - Single character escape sequences
@@ -131,6 +128,48 @@ https://mathiasbynens.be/notes/javascript-escapes
 
 JS escape tool:
 https://mothereff.in/js-escapes
+<br>
+
+[6] JavaScript has a Unicode problem
+https://mathiasbynens.be/notes/javascript-unicode
+
+- Unicode basics
+> It’s easiest to think of Unicode as a database that maps any symbol you can think of to a number called its **code point**, and to a unique name.
+
+> Code points are usually formatted as hexadecimal numbers, zero-padded up to at least four digits, with a `U+` prefix.
+
+> The first plane (`U+0000` → `U+FFFF`) and is called the **Basic Multilingual Plane** or **BMP**
+
+> That leaves us about 1 million other code points (U+010000 → U+10FFFF) that live outside the BMP. The planes these code points belong to are called **supplementary planes**, or **astral planes**.
+
+> Astral code points are pretty easy to recognize: if you need **more than 4 hexadecimal digits** to represent the code point, it’s an astral code point.
+
+- Escape sequences
+Described detailly in *JavaScript character escape sequences*
+<br>
+
+- Counting symbols in a JavaScript string
+  - Accounting for astral symbols
+  - Accounting for lookalikes
+  - Accounting for other combining marks
+  - Accounting for other types of grapheme clusters
+<br>
+
+- Issues with Unicode in string methods
+  - Turning a code point into a symbol
+  
+  > `String.fromCodePoint(0x1F4A9)`
+  
+  - Getting a symbol out of a string
+
+  - Getting a code point out of a string
+
+  > `'💩'.codePointAt(0)`
+
+  - Iterating over all symbols in a string
+
+- Issues with Unicode in regular expressions
+
 
 
 
